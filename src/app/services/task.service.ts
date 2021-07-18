@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../Task';
-import { TASKS } from "../mock-tasks";
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
@@ -18,11 +17,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  /* getTasks(): Observable<Task[]> {
-    return of(TASKS);
-  }*/
-
-  getTasks(): Observable<Task[]> {
+  getTasks(): Observable<Task[]> { // zwraca element do obserwowania
     return this.http.get<Task[]>(this.apiUrl);
   }
 
@@ -31,7 +26,7 @@ export class TaskService {
   }
 
   updateTaskReminder(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, 's');
+    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task, httpOptions);
   }
 
 }
