@@ -11,6 +11,12 @@
       "text": "tv series",
       "day": "May 10th at 5:53pm",
       "reminder": true
+    },
+    {
+      "text": "clean",
+      "day": "5th may",
+      "reminder": false,
+      "id": 4
     }
   ]
 }
